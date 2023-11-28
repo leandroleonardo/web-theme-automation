@@ -5,9 +5,7 @@ const simplificado = true;
 describe(`${temaFormatado} - Componente "${component}"`, () => {
     
     it('Acesso ao cenário', () => {
-        //cy.login()
         cy.acesso(component)
-        cy.wait(2500)
     })
 
     cores.forEach((cor) => {

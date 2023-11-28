@@ -9,7 +9,7 @@ describe(`${temaFormatado} - Componente "${component}"`, () => {
 
     cores.forEach((cor) => {
         it(`${cor.nome}`, () => {
-            cy.painel(cor.id);
+            cy.painel(cor.id, cor.id_grad);
         });
     });
 });

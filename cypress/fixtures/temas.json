@@ -4810,7 +4810,17 @@
         "claro": "colorLight40",
         "real": "colorRoyal40",
         "escuro": "colorDark40",
-        "estavel": "colorStable40"
+        "estavel": "colorStable40",
+        "sc-padrao-do-tema":"#2d3843",
+        "sc-secundario": "#08427a",
+        "sc-sucesso":"#0d840a",
+        "sc-informacao":"#25968f",
+        "sc-aviso":"#b36305",
+        "sc-perigo":"#7e2121",
+        "sc-claro": "#2d3843",
+        "sc-real": "#2d3843",
+        "sc-escuro": "#0f1e2e",
+        "sc-estavel": "#3e3e3e"
     },
     "materialround": {
         "fontFamily": "Open Sans, Arial, sans-serif",

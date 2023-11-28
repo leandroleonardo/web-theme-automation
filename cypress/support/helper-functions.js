@@ -2,24 +2,29 @@ const temas = require("../fixtures/temas.json");
 const temaAtual = Cypress.env("tema");
 export const temaFormatado = Cypress.env('tema').charAt(0).toUpperCase() + Cypress.env('tema').slice(1);
 
-export const gradientes = ['slate', 'spacelab','simplex','aquamarine','cerulean'];
+export const gradientes = ['slate', 'spacelab','simplex','aquamarine','cerulean','krypton'];
 
 export const cores = [
-  {nome: 'Padrão do tema', id: 'padrao-do-tema'},
-  {nome: 'Secundário', id: 'secundario'},
-  {nome: 'Sucesso', id: 'sucesso'},
-  {nome: 'Informação', id: 'informacao'},
-  {nome: 'Aviso', id: 'aviso'},
-  {nome: 'Perigo', id: 'perigo'},
-  {nome: 'Claro', id: 'claro'},
-  {nome: 'Real', id: 'real'},
-  {nome: 'Escuro', id: 'escuro'},
-  {nome: 'Estável', id: 'estavel'},
+  { nome: 'Padrão do tema', id: 'padrao-do-tema', id_grad: 'sc-padrao-do-tema', fallback:'--colorDefault40', fallback_grad:'--colorDefault', },
+  { nome: 'Secundário', id: 'secundario', id_grad: 'sc-secundario', fallback:'--colorPrimary40' ,fallback_grad: '--colorPrimary'},
+  { nome: 'Sucesso', id: 'sucesso', id_grad: 'sc-sucesso', fallback:'--colorSuccess40',fallback_grad:'--colorSuccess'},
+  { nome: 'Informação', id: 'informacao', id_grad: 'sc-informacao',fallback:'--colorCalm40', fallback_grad:'--colorCalm' },
+  { nome: 'Aviso', id: 'aviso', id_grad: 'sc-aviso', fallback:'--colorWarning40', fallback_grad:'--colorWarning'},
+  { nome: 'Perigo', id: 'perigo', id_grad: 'sc-perigo', fallback:'--colorDanger40', fallback_grad: '--colorDanger'},
+  { nome: 'Claro', id: 'claro', id_grad: 'sc-claro', fallback:'--colorLight40',fallback_grad:'--colorLight'},
+  { nome: 'Real', id: 'real', id_grad: 'sc-real', fallback:'--colorRoyal40',fallback_grad: '--colorRoyal'},
+  { nome: 'Escuro', id: 'escuro', id_grad: 'sc-escuro', fallback:'--colorDark40', fallback_grad:'--colorDark'},
+  { nome: 'Estável', id: 'estavel', id_grad: 'sc-estavel', fallback:'--colorStable40', fallback_grad:'--colorEstable'}
 ];
 
 export function getHexadecimal(cor) {
-  var variavelCSS = temas[temaAtual][cor];
-  return temas[temaAtual][variavelCSS];
+  let variavelCSS = temas[temaAtual][cor];
+  
+  if (cor.includes("sc-")) {
+    return temas[temaAtual][cor];
+  } else {
+    return temas[temaAtual][variavelCSS]; 
+  }
 }
 
 export function ColorToHex(color) {
