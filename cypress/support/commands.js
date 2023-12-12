@@ -8,32 +8,26 @@ chai.use(chaiColors)
 Cypress.Commands.addAll({
 
   login() {
-    cy.visit(Cypress.env('url'));
-
+    cy.visit('/');
+    cy.clearCookies();
+    cy.clearLocalStorage();
     cy.get('input[id="input-login-username"]').type('admin');
     cy.get('input[id="input-login-password"]').type('admin');
-    cy.contains('button', 'Entrar').click();
-
+    cy.get('#crn-button-login > .btn').click();
     cy.contains('h1', 'Cronapp Temas').should('be.visible');
   },
 
   acesso(pagina) {
-
     cy.login()
 
-    cy.contains('a', 'Views').click()
-
     if (func.getViewByComponent(pagina) === 1) {
-      cy.contains('span', 'TesteParte1').click()
-      cy.contains('h1', 'Painel').should('be.visible');
+      cy.visit('/#/home/logged/testeParte1')
       cy.wait(1000)
     }
     else if (func.getViewByComponent(pagina) === 2) {
-      cy.contains('span', 'TesteParte2').click()
-      cy.contains('h1', 'Caixa de checagem').should('be.visible');
+      cy.visit('/#/home/logged/testeParte2')
       cy.wait(1000)
     }
-
   },
 
   envioDeArquivo(cor, cor_grad) {
