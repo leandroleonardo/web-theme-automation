@@ -1,10 +1,11 @@
-import {cores, temaFormatado} from '../support/helper-functions';
+import {cores, temaFormatado, activeFallBack} from '../../support/helper-functions';
 const component = 'Link';
 
-describe(`${temaFormatado} - Componente "${component}"`, () => {
+describe(`${temaFormatado} - Fallback do componente "${component}"`, () => {
     
     it('Acesso ao cenário', () => {
         cy.acesso(component);
+        activeFallBack();
     })
 
     cores.forEach((cor) => {

@@ -1,7 +1,7 @@
-import {cores, temaFormatado, gradientes} from '../support/helper-functions';
+import {cores, temaFormatado, gradientes} from '../../support/helper-functions';
 const component = 'Envio de arquivo';
 
-describe(`${temaFormatado} - Componente "${component}"`, () => {
+describe(`${temaFormatado} - Cor do componente "${component}"`, () => {
     
     it('Acesso ao cenário', () => {
         cy.acesso(component);

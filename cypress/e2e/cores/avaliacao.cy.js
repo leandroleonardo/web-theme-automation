@@ -1,7 +1,7 @@
-import {cores, temaFormatado} from '../support/helper-functions';
+import {cores, temaFormatado} from '../../support/helper-functions';
 const component = 'Avaliação';
 
-describe(`${temaFormatado} - Componente "${component}"`, () => {
+describe(`${temaFormatado} - Cor do componente "${component}"`, () => {
     
     it('Acesso ao cenário', () => {
         cy.acesso(component);

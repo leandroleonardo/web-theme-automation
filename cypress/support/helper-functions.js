@@ -17,6 +17,16 @@ export const cores = [
   { nome: 'Estável', id: 'estavel', id_grad: 'sc-estavel', fallback:'--colorStable40', fallback_grad:'--colorEstable'}
 ];
 
+export function activeFallBack(type) {
+  type = type === 'gradient' &&  gradientes.includes(temaAtual) ? 'gradient' : ''
+  cores.forEach(cor => {
+    cy.window().then((win) => {
+      win.document.documentElement.style.setProperty(type === 'gradient' ? cor.fallback_grad : cor.fallback, 'initial');
+    });
+  })
+  cy.wait(1000)
+}
+
 export function getHexadecimal(cor) {
   let variavelCSS = temas[temaAtual][cor];
   
